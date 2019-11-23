@@ -3,9 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
-import { Usuario } from '../interfaces/usuario';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/toPromise';
+import { Usuario } from 'app/interfaces/usuario';
 
 @Injectable({
   providedIn: 'root'

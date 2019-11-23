@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AutenticarService } from '../services/autenticar.service';
+import { AutenticarService } from 'app/services/autenticar.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
   entrar() {
     this.autenticarService.login(this.formulario.value).subscribe(
       (response) => {
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['usuarios']);
       },
       (errorResponse: HttpErrorResponse) => {
         var message = "E-mail ou senha inválidos.";

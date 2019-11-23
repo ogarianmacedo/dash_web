@@ -15,7 +15,7 @@ class UsuarioController extends Controller
         $this->service = $service;
     }
 
-    public function index()
+    public function buscaUsuarios()
     {
         $usuarios = $this->service->buscaUsuarios();
         return response()->json(compact('usuarios'));

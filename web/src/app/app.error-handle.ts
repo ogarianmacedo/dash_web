@@ -17,11 +17,15 @@ export class AplicacaoErrorHandle extends ErrorHandler {
         if(errorResponse instanceof HttpErrorResponse) {
             const error = (typeof errorResponse.error !== 'object') ? JSON.parse(errorResponse.error) : errorResponse.error;
 
-            if(errorResponse.status === 400 && (error.error === 'token_expired' || error.error === 'token_invalid' || error.error === 'A token is required' || error.error === 'token_not_provided')) {
+            if(error.error == 'token_expired') {
                 this.redirecionaLogin();
             }
 
-            if(errorResponse.status === 401 && error.error === 'token_has_been_blacklisted') {
+            if(errorResponse.status == 400 && (error.error == 'token_expired' || error.error == 'token_invalid' || error.error == 'A token is required' || error.error == 'token_not_provided')) {
+                this.redirecionaLogin();
+            }
+
+            if(errorResponse.status == 401 && error.error == 'token_has_been_blacklisted') {
                 this.redirecionaLogin();
             }
         }

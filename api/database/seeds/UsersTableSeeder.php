@@ -23,8 +23,17 @@ class UsersTableSeeder extends Seeder
             'email' => 'luigi@email.com',
             'password' => bcrypt('123456'),
             'imagem' => 'assets/imagens/uploads/perfil/luigi.png',
-            'perfil_id' => 1,
-            'ativo' => true
+            'id_perfil' => 1,
+            'st_ativo' => true
+        ]);
+
+        User::create([
+            'name' => 'Mario Bros',
+            'email' => 'mario@email.com',
+            'password' => bcrypt('123456'),
+            'imagem' => 'assets/imagens/uploads/perfil/mario.png',
+            'id_perfil' => 2,
+            'st_ativo' => false
         ]);
     }
 }

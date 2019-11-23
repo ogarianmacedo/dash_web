@@ -7,16 +7,16 @@ use DB;
 
 class UsuarioService
 {
-    private $usuarios;
+    private $usuario;
 
-    public function __construct(User $usuarios)
+    public function __construct(User $usuario)
     {
-        $this->usuarios = $usuarios;
+        $this->usuario = $usuario;
     }
 
     public function buscaUsuarios()
     {
-        $usuarios = $this->usuarios->all();
+        $usuarios = $this->usuario->with('perfil')->get();
         return $usuarios;
     }
 
@@ -26,10 +26,10 @@ class UsuarioService
 
         if($dados['password'] == $dados["password_confirmation"]){
 
-            $dados['ativo'] = true;
+            $dados['st_ativo'] = true;
             $dados['password'] = bcrypt($dados['password']);
             
-            $this->usuarios->create($dados);
+            $this->usuario->create($dados);
 
             DB::commit();
             return response()->json(['success' => 'usuario_salvo']); 
