@@ -1,0 +1,107 @@
+<div class="main-content" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Editar Perfil</h4>
+                    </div>
+                    <div class="content">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Nome</label>
+                                        <input type="text" class="form-control" placeholder="" value="{{usuario?.name}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>E-mail</label>
+                                        <input type="email" class="form-control" placeholder="" value="{{usuario?.email}}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Perfil</label>
+                                        <select name="" id="" class="form-control">
+                                            <option value="">Selecionar</option>
+                                            <option value="">Administrador</option>
+                                            <option value="">Lojista</option>
+                                            <option value="">Usuário</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Status</label>
+                                        <select name="" id="" class="form-control">
+                                            <option value="">Selecionar</option>
+                                            <option value="">Ativo</option>
+                                            <option value="">Inativo</option>
+                                        </select> 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Imagem do Perfil</label>
+                                        <input type="file" >
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Nova Senha</label>
+                                        <input type="password" class="form-control" placeholder="******" value="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Confirmar Nova Senha</label>
+                                        <input type="password" class="form-control" placeholder="******" value="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-info btn-fill pull-right">Atualizar perfil</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-user">
+                    <div class="image">
+                        <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
+                    </div>
+                    <div class="content">
+                        <div class="author">
+                            <a href="#">
+                                <img class="avatar border-gray" src="{{usuario?.imagem}}" alt="..."/>
+
+                                <h4 class="title">{{usuario?.name}}<br />
+                                    <small>Administrador</small>
+                                </h4>
+                            </a>
+                        </div>
+                        <p class="description text-center">{{usuario?.email}}</p>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
