@@ -21,5 +21,5 @@ Route::group(['middleware' => 'jwt.auth', 'namespace' => 'Api\\'], function(){
 
     Route::post('usuario/novo', 'UsuarioController@novoUsuario');
 
-    
+    Route::get('usuarios/index', 'UsuarioController@index');
 });

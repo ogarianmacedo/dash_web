@@ -18,7 +18,6 @@ import { AutenticarGuard } from './proteger/autenticar.guard';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { RefreshTokenInterceptor } from './interceptors/refresh-token.interceptor';
 import { AplicacaoErrorHandle } from './app.error-handle';
-import { UsuariosComponent } from './usuarios/usuarios.component';
 
 @NgModule({
   imports: [
@@ -34,8 +33,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
-    UsuariosComponent
+    AdminLayoutComponent
   ],
   providers: [
     AutenticarGuard,
