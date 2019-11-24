@@ -10,13 +10,15 @@ import { catchError, tap, map } from 'rxjs/operators';
 })
 export class UsuariosService {
 
+  private urlApi = environment.api_url + '/usuarios/';
+
   constructor(private http: HttpClient) { }
 
   /**
    * Busca usuarios cadastrados
    */
   buscaUsuarios (): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(environment.api_url + '/usuarios/busca-usuarios');
+    return this.http.get<Usuario[]>(this.urlApi + 'busca-usuarios');
   }
 
 }

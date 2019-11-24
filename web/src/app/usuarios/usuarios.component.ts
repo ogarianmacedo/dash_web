@@ -9,7 +9,7 @@ import { Usuario } from 'app/interfaces/usuario';
 })
 export class UsuariosComponent implements OnInit {
 
-  usuarios: any;
+  usuarios: any[] = [];
 
   constructor(private service: UsuariosService) { }
 

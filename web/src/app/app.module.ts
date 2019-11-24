@@ -12,7 +12,9 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
-//Novos módulos
+/**
+ * Adicionados
+ */
 import { AutenticarModule } from './autenticar/autenticar.module';
 import { AutenticarGuard } from './proteger/autenticar.guard';
 import { TokenInterceptor } from './interceptors/token.interceptor';
