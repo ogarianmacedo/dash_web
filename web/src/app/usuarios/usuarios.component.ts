@@ -21,8 +21,6 @@ export class UsuariosComponent implements OnInit {
     this.service.buscaUsuarios()
     .subscribe(res => {
       this.usuarios = res['usuarios'];
-    }, err => {
-      console.log(err);
     });
   }
 

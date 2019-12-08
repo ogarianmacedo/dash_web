@@ -41,7 +41,7 @@ import { AplicacaoErrorHandle } from './app.error-handle';
     AutenticarGuard,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: RefreshTokenInterceptor, multi: true },
-    { provide: ErrorHandler, useClass: AplicacaoErrorHandle}
+    { provide: ErrorHandler, useClass: AplicacaoErrorHandle }
   ],
   bootstrap: [AppComponent]
 })

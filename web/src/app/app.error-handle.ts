@@ -16,7 +16,7 @@ export class AplicacaoErrorHandle extends ErrorHandler {
     handleError(errorResponse: HttpErrorResponse | any) {
         if(errorResponse instanceof HttpErrorResponse) {
             const error = (typeof errorResponse.error !== 'object') ? JSON.parse(errorResponse.error) : errorResponse.error;
-
+            
             if(error.error == 'token_expired') {
                 this.redirecionaLogin();
             }
@@ -37,7 +37,9 @@ export class AplicacaoErrorHandle extends ErrorHandler {
      * Redireciona o sistema para a tela de login
      */
     redirecionaLogin(): void {
+        window.location.reload();
         const router = this.injector.get(Router);
+        localStorage.clear();
         router.navigate(['autenticar/login']);
     }
 

@@ -22,19 +22,23 @@ class UsuarioService
 
     public function novoUsuario($dados)
     {
-        DB::beginTransaction();
+        try {
+            DB::beginTransaction();
 
-        if($dados['password'] == $dados["password_confirmation"]){
-
-            $dados['st_ativo'] = true;
-            $dados['password'] = bcrypt($dados['password']);
+            $novoUsuario['name'] = $dados['nome'];
+            $novoUsuario['email'] = $dados['email']; 
+            $novoUsuario['id_perfil'] = $dados['perfil']; 
+            $novoUsuario['st_ativo'] = $dados['status']; 
+            $novoUsuario['imagem'] = "assets/imagens/uploads/perfil/luigi.png";
+            $novoUsuario['password'] = bcrypt($dados['senha']);
             
-            $this->usuario->create($dados);
+            $this->usuario->create($novoUsuario);
 
             DB::commit();
             return response()->json(['success' => 'usuario_salvo']); 
-        } else {
-            return response()->json(['error' => 'senhas_diferentes']); 
+
+        } catch (Exception $e){
+            return $e->getMessage();
         }
     }
 }

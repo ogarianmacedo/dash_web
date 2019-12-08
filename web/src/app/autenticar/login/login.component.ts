@@ -39,8 +39,8 @@ export class LoginComponent implements OnInit {
       },
       (errorResponse: HttpErrorResponse) => {
         var message = "E-mail ou senha inválidos.";
-        var icon = "pe-7s-attention"
-        this.showNotificacao('top', 'center', 'warning', message, icon)
+        var icon = "pe-7s-attention";
+        this.showNotificacao('top', 'center', 'warning', message, icon);
       }
     );
   }

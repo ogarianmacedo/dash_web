@@ -20,15 +20,17 @@ Route::post('autenticar/refresh', 'Api\AutenticarController@refresh');
 Route::get('autenticar/logout', 'Api\AutenticarController@logout');
 
 Route::group(['middleware' => 'jwt.auth', 'namespace' => 'Api\\'], function(){
-    /**
-     * Rotas modulo perfil
-     */
-    Route::get('usuario/autenticado', 'AutenticarController@getUsuarioAutenticado');
 
     /**
      * Rotas modulo usuarios
      */
+    Route::get('usuario/autenticado', 'AutenticarController@getUsuarioAutenticado');
     Route::get('usuarios/busca-usuarios', 'UsuarioController@buscaUsuarios');
-    //Route::post('usuarios/novo', 'UsuarioController@novoUsuario');
+    Route::post('usuarios/novo', 'UsuarioController@novoUsuario');
+
+    /**
+     * Rotas modulo perfis
+     */
+    Route::get('perfil/busca-perfis', 'PerfilController@buscaPerfis');
     
 });

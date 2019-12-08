@@ -24,7 +24,6 @@ class UsuarioController extends Controller
     public function novoUsuario(Request $request)
     {
         $retorno = $this->service->novoUsuario($request->all());
-
         if($retorno) {
             return $retorno; 
         } else {
