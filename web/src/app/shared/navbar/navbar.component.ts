@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { AutenticarService } from 'app/services/autenticar.service';
+import { environment } from 'environments/environment';
 
 @Component({
     // moduleId: module.id,
@@ -14,6 +15,7 @@ export class NavbarComponent implements OnInit{
     location: Location;
     private toggleButton: any;
     private sidebarVisible: boolean;
+    url = 'http://localhost:8000/';
 
     constructor(location: Location, private element: ElementRef, private autenticarService: AutenticarService) {
       this.location = location;

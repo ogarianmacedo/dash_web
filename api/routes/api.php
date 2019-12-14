@@ -27,6 +27,7 @@ Route::group(['middleware' => 'jwt.auth', 'namespace' => 'Api\\'], function(){
     Route::get('usuario/autenticado', 'AutenticarController@getUsuarioAutenticado');
     Route::get('usuarios/busca-usuarios', 'UsuarioController@buscaUsuarios');
     Route::post('usuarios/novo', 'UsuarioController@novoUsuario');
+    Route::post('usuarios/upload', 'UsuarioController@upload');
 
     /**
      * Rotas modulo perfis

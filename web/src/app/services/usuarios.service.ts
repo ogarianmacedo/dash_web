@@ -33,8 +33,13 @@ export class UsuariosService {
   }
 
   cadastrarUsuario (dados): Observable<Usuario[]> {
-    console.log(dados);
     return this.http.post<Usuario[]>(this.urlApi + 'novo', dados, httpOptions);
+  }
+
+  upload(arquivo) {
+    const formData = new FormData();
+    formData.append('imagem', arquivo[0]);
+    return this.http.post(this.urlApi + 'upload', formData);
   }
 
 }

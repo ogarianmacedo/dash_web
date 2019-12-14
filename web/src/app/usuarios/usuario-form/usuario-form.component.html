@@ -62,8 +62,13 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Imagem do Perfil</label>
-                    <input type="file">
+                    <br>
+                    <div class="fileUpload btn btn-primary">
+                      <span>Selecionar Imagem</span>
+                      <input type="file" class="upload" id="imagem" (change)="carregaArquivo($event)">
+                    </div>
                   </div>
+
                 </div>
                 <div class="col-md-6">
                 </div>

@@ -14,6 +14,8 @@ export class UsuarioFormComponent implements OnInit {
 
   usuario: any[] = [];
   perfis: any[] = [];
+  arquivo: Set<File>;
+  nomeImagem: string = "";
 
   constructor(private service: UsuariosService, private router: Router) { }
 
@@ -28,26 +30,41 @@ export class UsuarioFormComponent implements OnInit {
       })
   }
 
+  carregaArquivo(event: any) {
+    this.arquivo = event.target.files;
+  }
+
   novoUsuario(form) {
     if (form.value) {
       if (form.value.senha != form.value.confimarSenha) {
         var message = "As senhas não conferem!";
         var icon = "pe-7s-attention";
         this.showNotificacao('top', 'center', 'warning', message, icon);
+        return false;
       }
 
-      this.service.cadastrarUsuario(form.value).subscribe(res => {
-        console.log(res);
-        var message = "Usuário salvo com sucesso!";
-        var icon = "pe-7s-smile";
-        this.showNotificacao('top', 'center', 'success', message, icon);
-        this.router.navigate(['usuarios']);
-      }, (err) => {
-        console.log(err);
-        var message = "Erro ao cadastrar usuário, tente mais tarde!";
+      if (!this.arquivo) {
+        var message = "Selecione uma imagem!";
         var icon = "pe-7s-attention";
         this.showNotificacao('top', 'center', 'warning', message, icon);
+        return false;
+      }
+
+      this.service.upload(this.arquivo).subscribe(resImg => {
+        form.value.imagem = resImg['retorno'];
+
+        this.service.cadastrarUsuario(form.value).subscribe(res => {
+          var message = "Usuário salvo com sucesso!";
+          var icon = "pe-7s-smile";
+          this.showNotificacao('top', 'center', 'success', message, icon);
+          this.router.navigate(['usuarios']);
+        }, (err) => {
+          var message = "Erro ao cadastrar usuário, tente mais tarde!";
+          var icon = "pe-7s-attention";
+          this.showNotificacao('top', 'center', 'warning', message, icon);
+        })
       });
+
     }
   }
 

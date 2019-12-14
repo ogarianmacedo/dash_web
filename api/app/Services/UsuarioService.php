@@ -29,7 +29,7 @@ class UsuarioService
             $novoUsuario['email'] = $dados['email']; 
             $novoUsuario['id_perfil'] = $dados['perfil']; 
             $novoUsuario['st_ativo'] = $dados['status']; 
-            $novoUsuario['imagem'] = "assets/imagens/uploads/perfil/luigi.png";
+            $novoUsuario['imagem'] = $dados['imagem']; 
             $novoUsuario['password'] = bcrypt($dados['senha']);
             
             $this->usuario->create($novoUsuario);
@@ -39,6 +39,20 @@ class UsuarioService
 
         } catch (Exception $e){
             return $e->getMessage();
+        }
+    }
+
+    public function upload($dadosArquivo)
+    {
+        if($dadosArquivo->hasFile('imagem')){
+            $imagem = $dadosArquivo->file('imagem');
+
+            $ext = $imagem->guessClientExtension();
+            $diretorio = "img/uploads/perfil/";
+            $nomeImg = $diretorio . 'imagem_perfil_' . rand(11111,99999) . '.' . $ext;
+            $imagem->move($diretorio, $nomeImg);
+
+            return $nomeImg;
         }
     }
 }

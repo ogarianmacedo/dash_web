@@ -25,9 +25,19 @@ class UsuarioController extends Controller
     {
         $retorno = $this->service->novoUsuario($request->all());
         if($retorno) {
-            return $retorno; 
+            return response()->json(['success' => 'usuario_cadastrado']);
         } else {
-            return response()->json(['error' => 'error_salvar_usuario']); 
+            return response()->json(['error' => 'error_cadastrar_usuario']); 
+        }
+    }
+
+    public function upload(Request $request)
+    {
+        $retorno = $this->service->upload($request);
+        if($retorno) {
+            return response()->json(compact('retorno')); 
+        } else {
+            return response()->json(['error' => 'error_salvar_imagem']); 
         }
     }
 
