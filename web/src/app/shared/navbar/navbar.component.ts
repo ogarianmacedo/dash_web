@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit{
     location: Location;
     private toggleButton: any;
     private sidebarVisible: boolean;
-    url = 'http://localhost:8000/';
+    url = environment.api_url;
 
     constructor(location: Location, private element: ElementRef, private autenticarService: AutenticarService) {
       this.location = location;

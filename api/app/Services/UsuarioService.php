@@ -55,4 +55,33 @@ class UsuarioService
             return $nomeImg;
         }
     }
+
+    public function visualizarUsuario($id)
+    {
+        $usuario = $this->usuario->with('perfil')->findOrFail($id);
+        return $usuario;
+    }
+
+    public function alterarStatususuario($id)
+    {
+        try {
+            DB::beginTransaction();
+
+            $usuario = $this->usuario->with('perfil')->find($id);
+            if($usuario['st_ativo']){
+                $novoStatus = false;
+            } else {
+                $novoStatus = true;
+            }
+
+            $alterarDado['st_ativo'] =  $novoStatus;
+            $this->usuario->find($id)->update($alterarDado);
+
+            DB::commit();
+            return response()->json(['success' => 'status_aterado']); 
+
+        } catch (Exception $e){
+            return $e->getMessage();
+        }
+    }
 }

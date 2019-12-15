@@ -19,7 +19,7 @@ export class AutenticarService {
    * @param dados 
    */
   login(dados: { email: string, password: string }): Observable<boolean> {
-    return this.http.post<any>(environment.api_url + '/autenticar/login', dados)
+    return this.http.post<any>(environment.api_url + 'api/autenticar/login', dados)
       .do(data => {
         localStorage.setItem('token', data.token);
         localStorage.setItem('usuario', btoa(JSON.stringify(data.usuario)));
@@ -37,7 +37,7 @@ export class AutenticarService {
    * Metodo para logout
    */
   logout(): void {
-    this.http.get(environment.api_url + '/autenticar/logout').subscribe(resp => {
+    this.http.get(environment.api_url + 'api/autenticar/logout').subscribe(resp => {
       localStorage.clear();
       this.router.navigate(['autenticar/login']);
     });
@@ -54,7 +54,7 @@ export class AutenticarService {
    *  Busca dados usuario na base
    */
   getUsuarioAutenticado(): Promise<boolean> {
-    return this.http.get<any>(environment.api_url + '/autenticar/getUsuarioAutenticado').toPromise()
+    return this.http.get<any>(environment.api_url + 'api/autenticar/getUsuarioAutenticado').toPromise()
       .then(data => {
         if(data.usuario){
           localStorage.setItem('usuario', btoa(JSON.stringify(data.usuario)));

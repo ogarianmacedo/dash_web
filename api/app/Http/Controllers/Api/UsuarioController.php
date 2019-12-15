@@ -25,7 +25,7 @@ class UsuarioController extends Controller
     {
         $retorno = $this->service->novoUsuario($request->all());
         if($retorno) {
-            return response()->json(['success' => 'usuario_cadastrado']);
+            return response()->json(compact('retorno')); 
         } else {
             return response()->json(['error' => 'error_cadastrar_usuario']); 
         }
@@ -38,6 +38,26 @@ class UsuarioController extends Controller
             return response()->json(compact('retorno')); 
         } else {
             return response()->json(['error' => 'error_salvar_imagem']); 
+        }
+    }
+
+    public function visualizarUsuario($id)
+    {
+        $retorno = $this->service->visualizarUsuario($id);
+        if($retorno) {
+            return response()->json(compact('retorno')); 
+        } else {
+            return response()->json(['error' => 'usuario_nao_encontado']); 
+        }
+    }
+
+    public function alterarStatusUsuario($id)
+    {
+        $retorno = $this->service->alterarStatusUsuario($id);
+        if($retorno) {
+            return response()->json(compact('retorno')); 
+        } else {
+            return response()->json(['error' => 'error_alterar_status']); 
         }
     }
 

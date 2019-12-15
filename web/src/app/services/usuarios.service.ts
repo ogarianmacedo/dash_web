@@ -17,19 +17,16 @@ const httpOptions = {
 })
 export class UsuariosService {
 
-  private urlApi = environment.api_url + '/usuarios/';
+  private urlApi = environment.api_url + 'api/usuarios/';
 
   constructor(private http: HttpClient) { }
 
-  /**
-   * Busca usuarios cadastrados
-   */
   buscaUsuarios (): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(this.urlApi + 'busca-usuarios');
   }
 
   listaPerfis () {
-    return this.http.get(environment.api_url + '/perfil/busca-perfis');
+    return this.http.get(environment.api_url + 'api/perfil/busca-perfis');
   }
 
   cadastrarUsuario (dados): Observable<Usuario[]> {
@@ -42,4 +39,11 @@ export class UsuariosService {
     return this.http.post(this.urlApi + 'upload', formData);
   }
 
+  buscaUsuarioSelecionado(id) {
+    return this.http.get<Usuario[]>(this.urlApi + 'detalhes/' + id);
+  }
+
+  alterarStatusUsuario(id) {
+    return this.http.get<Usuario[]>(this.urlApi + 'alterar-status/' + id);
+  }
 }

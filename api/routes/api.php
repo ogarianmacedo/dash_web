@@ -28,6 +28,8 @@ Route::group(['middleware' => 'jwt.auth', 'namespace' => 'Api\\'], function(){
     Route::get('usuarios/busca-usuarios', 'UsuarioController@buscaUsuarios');
     Route::post('usuarios/novo', 'UsuarioController@novoUsuario');
     Route::post('usuarios/upload', 'UsuarioController@upload');
+    Route::get('usuarios/detalhes/{id}', 'UsuarioController@visualizarUsuario');
+    Route::get('usuarios/alterar-status/{id}', 'UsuarioController@alterarStatusUsuario');
 
     /**
      * Rotas modulo perfis

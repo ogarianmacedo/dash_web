@@ -11,6 +11,6 @@ export const AdminLayoutRoutes: Routes = [
      */
     { path: 'usuarios',              component: UsuariosComponent },
     { path: 'usuarios/novo',         component: UsuarioFormComponent },
-    { path: 'usuarios/:id',          component: UsuarioDetalheComponent },
-    { path: 'usuarios/:id/editar',   component: UsuarioFormComponent },
+    { path: 'usuarios/detalhes/:id', component: UsuarioDetalheComponent },
+    { path: 'usuarios/editar/:id',   component: UsuarioFormComponent },
 ];
