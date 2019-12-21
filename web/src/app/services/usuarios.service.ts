@@ -46,4 +46,8 @@ export class UsuariosService {
   alterarStatusUsuario(id) {
     return this.http.get<Usuario[]>(this.urlApi + 'alterar-status/' + id);
   }
+
+  editarUsuario (id, dados): Observable<Usuario[]> {
+    return this.http.post<Usuario[]>(this.urlApi + 'editar/' + id, dados, httpOptions);
+  }
 }

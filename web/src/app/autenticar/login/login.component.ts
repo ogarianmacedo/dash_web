@@ -38,9 +38,15 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['usuarios']);
       },
       (errorResponse: HttpErrorResponse) => {
-        var message = "E-mail ou senha inválidos.";
-        var icon = "pe-7s-attention";
-        this.showNotificacao('top', 'center', 'warning', message, icon);
+        if(errorResponse.error.error == "usuario_inativo"){
+          var message = "Usuário inativo.";
+          var icon = "pe-7s-attention";
+          this.showNotificacao('top', 'center', 'warning', message, icon);  
+        } else {
+          var message = "E-mail ou senha inválidos.";
+          var icon = "pe-7s-attention";
+          this.showNotificacao('top', 'center', 'warning', message, icon);
+        }
       }
     );
   }

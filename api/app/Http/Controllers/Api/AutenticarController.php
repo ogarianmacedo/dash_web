@@ -29,6 +29,9 @@ class AutenticarController extends Controller
         }
 
         $usuario = $this->jwtAuth->authenticate($token);
+        if($usuario->st_ativo == 0){
+            return response()->json(['error' => 'usuario_inativo'], 401);
+        }
 
         // retorna o token
         return response()->json(compact('token', 'usuario'));

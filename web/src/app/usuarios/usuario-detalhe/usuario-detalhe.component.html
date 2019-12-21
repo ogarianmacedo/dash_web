@@ -40,7 +40,7 @@
               </div>
               <hr>
               <div class="text-center">
-                <a rel="tooltip" title="Editar Usuário" class="btn btn-warning btn-simple">
+                <a [routerLink]="['/usuarios/editar/', usuario.id]" rel="tooltip" title="Editar Usuário" class="btn btn-warning btn-simple">
                   <i class="fa fa-edit"></i> Editar
                 </a>
                 <a rel="tooltip" title="Ativar ou inativar usuário" style="cursor: pointer;" (click)="alterarStatus(usuario.id)">

@@ -12,6 +12,7 @@ import { AdminLayoutRoutes } from './admin-layout.routing';
 import { UsuariosComponent } from 'app/usuarios/usuarios.component';
 import { UsuarioFormComponent } from 'app/usuarios/usuario-form/usuario-form.component';
 import { UsuarioDetalheComponent } from 'app/usuarios/usuario-detalhe/usuario-detalhe.component';
+import { UsuarioFormEditarComponent } from 'app/usuarios/usuario-form-editar/usuario-form-editar.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { UsuarioDetalheComponent } from 'app/usuarios/usuario-detalhe/usuario-de
   declarations: [
     UsuariosComponent,
     UsuarioFormComponent,
-    UsuarioDetalheComponent
+    UsuarioDetalheComponent,
+    UsuarioFormEditarComponent
   ]
 })
 

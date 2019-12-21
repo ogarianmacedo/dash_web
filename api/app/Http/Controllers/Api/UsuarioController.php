@@ -61,4 +61,14 @@ class UsuarioController extends Controller
         }
     }
 
+    public function editarUsuario($id, Request $request)
+    {
+        $retorno = $this->service->editarUsuario($id, $request->all());
+        if($retorno) {
+            return response()->json(compact('retorno')); 
+        } else {
+            return response()->json(['error' => 'error_editar_usuario']); 
+        }
+    }
+
 }

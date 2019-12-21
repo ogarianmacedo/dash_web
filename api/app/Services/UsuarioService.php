@@ -84,4 +84,34 @@ class UsuarioService
             return $e->getMessage();
         }
     }
+
+    public function editarUsuario($id, $dados)
+    {
+       try {
+            DB::beginTransaction();
+
+            $editaUsuario['name'] = $dados['nome'];
+            $editaUsuario['email'] = $dados['email']; 
+            $editaUsuario['id_perfil'] = $dados['perfil']; 
+            $editaUsuario['st_ativo'] = $dados['status']; 
+
+            if(!empty($dados['imagem'])){
+                $editaUsuario['imagem'] = $dados['imagem']; 
+            }
+
+            if(!empty($dados['senha'])){
+                $editaUsuario['password'] = bcrypt($dados['senha']);
+            } else {
+                unset($editaUsuario['password']);
+            }
+            
+            $this->usuario->find($id)->update($editaUsuario);
+
+            DB::commit();
+            return response()->json(['success' => 'usuario_editado']); 
+
+        } catch (Exception $e){
+            return $e->getMessage();
+        }
+    }
 }
