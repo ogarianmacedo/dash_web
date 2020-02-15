@@ -42,5 +42,4 @@ export class AplicacaoErrorHandle extends ErrorHandler {
         localStorage.clear();
         router.navigate(['autenticar/login']);
     }
-
 }
