@@ -20,7 +20,16 @@ import { AutenticarGuard } from './proteger/autenticar.guard';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { RefreshTokenInterceptor } from './interceptors/refresh-token.interceptor';
 import { AplicacaoErrorHandle } from './app.error-handle';
-import { NgxLoadingModule } from "ngx-loading";
+import {NgxUiLoaderConfig, NgxUiLoaderModule} from "ngx-ui-loader";
+
+/**
+ * Configuração do Loader
+ */
+const ngxUiLoaderConfig: NgxUiLoaderConfig = {
+    bgsColor: '#00ACC1',
+    fgsColor: '#bf3137',
+    bgsOpacity: 0.1
+};
 
 @NgModule({
   imports: [
@@ -33,7 +42,7 @@ import { NgxLoadingModule } from "ngx-loading";
     SidebarModule,
     AppRoutingModule,
     AutenticarModule,
-    //NgxLoadingModule.forRoot({})
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
   ],
   declarations: [
     AppComponent,

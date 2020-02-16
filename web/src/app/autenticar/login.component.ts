@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AutenticarService } from 'app/services/autenticar.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import {NgxUiLoaderService} from "ngx-ui-loader";
 
 //adicionado p/ metodo de notificacao
 declare var $: any;
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private autenticarService: AutenticarService,
-    private router: Router) {
+    private router: Router,
+    private ngxLoader: NgxUiLoaderService) {
   }
 
   ngOnInit() {
@@ -33,8 +35,11 @@ export class LoginComponent implements OnInit {
    * Metodo para fazer login
    */
   entrar() {
+    this.ngxLoader.start();
+
     this.autenticarService.login(this.formulario.value).subscribe(
       (response) => {
+        this.ngxLoader.stop();
         this.router.navigate(['usuarios']);
       },
       (errorResponse: HttpErrorResponse) => {
