@@ -24,28 +24,28 @@
               <div class="content">
                 <div class="author">
                   <a href="#">
-                    <img class="avatar border-gray" src="{{url + usuario.imagem}}" alt="..." />
+                    <img class="avatar border-gray" src="{{url + usuario?.imagem}}" alt="..." />
 
                     <h4 class="title">{{usuario.name}}<br />
-                      <small>{{usuario.perfil.no_perfil}}</small>
+                      <small>{{usuario.perfil?.no_perfil}}</small>
                     </h4>
                   </a>
                 </div>
                 <p class="description text-center">
-                  {{usuario.email}} <br>
-                  Criado em {{usuario.created_at | date:'dd/M/y'}} <br>
-                  <span *ngIf="usuario.st_ativo == 1" style="color:green;">Ativo</span>
-                  <span *ngIf="usuario.st_ativo != 1" style="color:red;">Inativo</span>
+                  {{usuario?.email}} <br>
+                  Criado em {{usuario?.created_at | date:'dd/M/y'}} <br>
+                  <span *ngIf="usuario?.st_ativo == 1" style="color:green;">Ativo</span>
+                  <span *ngIf="usuario?.st_ativo != 1" style="color:red;">Inativo</span>
                 </p>
               </div>
               <hr>
               <div class="text-center">
-                <a [routerLink]="['/usuarios/editar/', usuario.id]" rel="tooltip" title="Editar Usuário" class="btn btn-warning btn-simple">
+                <a [routerLink]="['/usuarios/editar/', usuario?.id]" rel="tooltip" title="Editar Usuário" class="btn btn-warning btn-simple">
                   <i class="fa fa-edit"></i> Editar
                 </a>
-                <a rel="tooltip" title="Ativar ou inativar usuário" style="cursor: pointer;" (click)="alterarStatus(usuario.id)">
-                  <span *ngIf="usuario.st_ativo != 1" style="color:green;"><i class="fa fa-check"></i> Ativar</span>
-                  <span *ngIf="usuario.st_ativo == 1" style="color:red;"><i class="fa fa-times"></i> Inativar</span>
+                <a rel="tooltip" title="Ativar ou inativar usuário" style="cursor: pointer;" (click)="alterarStatus(usuario?.id)">
+                  <span *ngIf="usuario?.st_ativo != 1" style="color:green;"><i class="fa fa-check"></i> Ativar</span>
+                  <span *ngIf="usuario?.st_ativo == 1" style="color:red;"><i class="fa fa-times"></i> Inativar</span>
                 </a>
               </div>
             </div>

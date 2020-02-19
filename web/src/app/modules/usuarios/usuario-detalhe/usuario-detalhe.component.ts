@@ -24,9 +24,9 @@ export class UsuarioDetalheComponent implements OnInit {
   }
 
   buscaUsuarioSelecionado() {
-    this.ngxLoader.start();
-    var id = this.route.snapshot.params['id'];
-    this.service.buscaUsuarioSelecionado(id)
+      var id = this.route.snapshot.params['id'];
+
+      this.service.buscaUsuarioSelecionado(id)
       .subscribe(res =>
       {
         this.ngxLoader.stop();
@@ -36,6 +36,7 @@ export class UsuarioDetalheComponent implements OnInit {
 
   alterarStatus(id) {
     this.ngxLoader.start();
+
     this.service.alterarStatusUsuario(id)
       .subscribe(res =>
       {

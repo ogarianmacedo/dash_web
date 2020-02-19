@@ -44,10 +44,12 @@ export class LoginComponent implements OnInit {
       },
       (errorResponse: HttpErrorResponse) => {
         if(errorResponse.error.error == "usuario_inativo"){
+          this.ngxLoader.stop();
           var message = "Usuário inativo.";
           var icon = "pe-7s-attention";
           this.showNotificacao('top', 'center', 'warning', message, icon);  
         } else {
+          this.ngxLoader.stop();
           var message = "E-mail ou senha inválidos.";
           var icon = "pe-7s-attention";
           this.showNotificacao('top', 'center', 'warning', message, icon);

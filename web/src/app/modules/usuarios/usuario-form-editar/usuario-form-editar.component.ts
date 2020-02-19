@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from 'app/services/usuarios.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { environment } from 'environments/environment';
+import {NgxUiLoaderService} from "ngx-ui-loader";
 
 //adicionado p/ metodo de notificacao
 declare var $: any;
@@ -19,7 +20,12 @@ export class UsuarioFormEditarComponent implements OnInit {
   nomeImagem: string = "";
   url = environment.api_url;
 
-  constructor(private service: UsuariosService, private router: Router, private route: ActivatedRoute) { }
+  constructor(
+      private service: UsuariosService,
+      private router: Router,
+      private route: ActivatedRoute,
+      private ngxLoader: NgxUiLoaderService
+  ) { }
 
   ngOnInit() {
     this.buscaUsuarioSelecionado();
@@ -27,9 +33,11 @@ export class UsuarioFormEditarComponent implements OnInit {
   }
 
   buscaUsuarioSelecionado() {
+    this.ngxLoader.start();
     var id = this.route.snapshot.params['id'];
     this.service.buscaUsuarioSelecionado(id)
       .subscribe(res => {
+        this.ngxLoader.stop();
         this.usuario = res['retorno'];
       });
   }

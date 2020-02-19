@@ -39,7 +39,7 @@
                   <td *ngIf="usuario.st_ativo != 1" style="color:red;">Inativo</td>
                   <td>{{usuario.created_at | date:'dd/M/y'}}</td>
                   <td class="td-actions text-center">
-                    <a [routerLink]="['/usuarios/detalhes/', usuario.id]" rel="tooltip" title="Visualizar Usuário" class="btn btn-info btn-simple">
+                    <a (click)="visualizarUsuario(usuario.id)" rel="tooltip" title="Visualizar Usuário" class="btn btn-info btn-simple">
                       <i class="fa fa-user"></i>
                     </a>
                     <a [routerLink]="['/usuarios/editar/', usuario.id]" rel="tooltip" title="Editar Usuário" class="btn btn-success btn-simple">

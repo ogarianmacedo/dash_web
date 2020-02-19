@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from 'app/services/usuarios.service';
 import {NgxUiLoaderService} from "ngx-ui-loader";
+import {Router} from "@angular/router";
 
 //adicionado p/ metodo de notificacao
 declare var $: any;
@@ -14,7 +15,7 @@ export class UsuariosComponent implements OnInit {
 
   usuarios: any[] = [];
 
-  constructor(private service: UsuariosService, private ngxLoader: NgxUiLoaderService) { }
+  constructor(private router: Router, private service: UsuariosService, private ngxLoader: NgxUiLoaderService) { }
 
   ngOnInit() {
     this.buscaUsuarios();
@@ -42,6 +43,14 @@ export class UsuariosComponent implements OnInit {
 
         this.buscaUsuarios();
       });
+  }
+
+  visualizarUsuario(id) {
+      this.ngxLoader.start();
+
+      setTimeout(() => {
+          this.router.navigate(['/usuarios/detalhes/', id]);
+      }, 1000);
   }
 
   /**
