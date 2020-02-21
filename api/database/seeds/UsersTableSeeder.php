@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Luigi Bros',
             'email' => 'luigi@email.com',
             'password' => bcrypt('123456'),
-            'imagem' => 'assets/imagens/uploads/perfil/luigi.png',
+            'imagem' => 'img/uploads/perfil/luigi.png',
             'id_perfil' => 1,
             'st_ativo' => true
         ]);
@@ -31,7 +31,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Mario Bros',
             'email' => 'mario@email.com',
             'password' => bcrypt('123456'),
-            'imagem' => 'assets/imagens/uploads/perfil/mario.png',
+            'imagem' => 'img/uploads/perfil/mario.png',
             'id_perfil' => 2,
             'st_ativo' => false
         ]);

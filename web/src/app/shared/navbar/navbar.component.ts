@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit{
     private sidebarVisible: boolean;
     url = environment.api_url;
 
-    constructor(location: Location, private element: ElementRef, private autenticarService: AutenticarService) {
+    constructor(location: Location, private element: ElementRef, public autenticarService: AutenticarService) {
       this.location = location;
           this.sidebarVisible = false;
     }
