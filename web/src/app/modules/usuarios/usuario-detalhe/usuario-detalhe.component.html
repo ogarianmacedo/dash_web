@@ -10,8 +10,7 @@
                 <h4 class="title">Detalhes</h4>
               </div>
               <div class="col-md-6 text-right">
-                <a type="button" class="btn btn-primary btn-sm" title="Listar usuários"
-                  [routerLink]="['/usuarios']">Voltar</a>
+                <a type="button" class="btn btn-primary btn-sm" title="Listar usuários" [routerLink]="['/usuarios']">Voltar</a>
               </div>
             </div>
           </div>
@@ -26,16 +25,16 @@
                   <a href="#">
                     <img class="avatar border-gray" src="{{url + usuario?.imagem}}" alt="..." />
 
-                    <h4 class="title">{{usuario.name}}<br />
-                      <small>{{usuario.perfil?.no_perfil}}</small>
+                    <h4 class="title">{{usuario?.name}}<br />
+                      <small>{{usuario?.perfil?.no_perfil}}</small>
                     </h4>
                   </a>
                 </div>
                 <p class="description text-center">
                   {{usuario?.email}} <br>
                   Criado em {{usuario?.created_at | date:'dd/M/y'}} <br>
-                  <span *ngIf="usuario?.st_ativo == 1" style="color:green;">Ativo</span>
-                  <span *ngIf="usuario?.st_ativo != 1" style="color:red;">Inativo</span>
+                  <span [hidden]="usuario?.st_ativo == 1" style="color:red;">Inativo</span>
+                  <span [hidden]="usuario?.st_ativo != 1" style="color:green;">Ativo</span>
                 </p>
               </div>
               <hr>

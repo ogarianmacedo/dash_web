@@ -1,3 +1,5 @@
+import { Perfil } from "./perfil";
+
 export interface Usuario {
     id: number;
     name: string;
@@ -7,4 +9,5 @@ export interface Usuario {
     st_ativo: boolean;
     created_at: string;
     updated_at: string;
+    perfil: Perfil;
 }

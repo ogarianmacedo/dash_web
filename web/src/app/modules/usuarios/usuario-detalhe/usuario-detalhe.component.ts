@@ -3,6 +3,7 @@ import { UsuariosService } from 'app/services/usuarios.service';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from 'environments/environment';
 import {NgxUiLoaderService} from "ngx-ui-loader";
+import { Usuario } from 'app/interfaces/usuario';
 
 //adicionado p/ metodo de notificacao
 declare var $: any;
@@ -14,7 +15,7 @@ declare var $: any;
 })
 export class UsuarioDetalheComponent implements OnInit {
 
-  usuario: any[] = [];
+  usuario: Usuario;
   url = environment.api_url;
 
   constructor(private service: UsuariosService, private route: ActivatedRoute, private ngxLoader: NgxUiLoaderService) { }
