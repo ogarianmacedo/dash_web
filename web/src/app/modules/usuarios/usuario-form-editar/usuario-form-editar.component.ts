@@ -3,6 +3,7 @@ import { UsuariosService } from 'app/services/usuarios.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { environment } from 'environments/environment';
 import {NgxUiLoaderService} from "ngx-ui-loader";
+import { Usuario } from 'app/interfaces/usuario';
 
 //adicionado p/ metodo de notificacao
 declare var $: any;
@@ -14,7 +15,7 @@ declare var $: any;
 })
 export class UsuarioFormEditarComponent implements OnInit {
 
-  usuario: any[] = [];
+  usuario: Usuario;
   perfis: any[] = [];
   arquivo: Set<File>;
   nomeImagem: string = "";

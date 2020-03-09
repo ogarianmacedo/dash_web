@@ -68,7 +68,7 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title m-b-md">
-                    Lord Tech Web \m/,
+                    Dash Web
                 </div>
             </div>
         </div>
