@@ -30,7 +30,7 @@
         "chartist": "0.11.0",
         "core-js": "2.6.9",
         "googleapis": "33.0.0",
-        "jquery": "3.4.1",
+        "jquery": "3.5.0",
         "ngx-loading": "^7.0.0",
         "ngx-ui-loader": "^7.2.2",
         "node-sass": "^4.13.0",
