@@ -1,16 +1,16 @@
 .fileUpload {
-	Position: relative;
-	Overflow: hidden;
+  Position: relative;
+  Overflow: hidden;
 }
 
 .fileUpload input.upload {
-	Position: absolute;
-	Top: 0;
-	Right: 0;
-	Margin: 0;
-	Padding: 0;
-	Font-size: 20px;
-	Cursor: pointer;
-	Opacity: 0;
-	Filter: alpha(opacity=0);
+  Position: absolute;
+  Top: 0;
+  Right: 0;
+  Margin: 0;
+  Padding: 0;
+  Font-size: 20px;
+  Cursor: pointer;
+  Opacity: 0;
+  Filter: alpha(opacity=0);
 }

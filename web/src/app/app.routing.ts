@@ -1,47 +1,47 @@
-import { NgModule } from '@angular/core';
-import { CommonModule, } from '@angular/common';
-import { BrowserModule  } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {CommonModule,} from '@angular/common';
+import {BrowserModule} from '@angular/platform-browser';
+import {Routes, RouterModule} from '@angular/router';
 
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
 
 //Adicionados
-import { LoginComponent } from './autenticar/login.component';
-import { AutenticarGuard } from './proteger/autenticar.guard';
+import {LoginComponent} from './autenticar/login.component';
+import {AutenticarGuard} from './proteger/autenticar.guard';
 
-const routes: Routes =[
-  {
-    path: '',
-    component: AdminLayoutComponent,
-    canActivate: [AutenticarGuard],
-    canActivateChild: [AutenticarGuard],
-    children: [
-      {
+const routes: Routes = [
+    {
         path: '',
-        redirectTo: 'dashboard',
-        pathMatch: 'full',
-      }, 
-      {
-        path: '',
-        loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-      }
-    ]
-  },
-  {
-    path: 'autenticar/login',
-    component: LoginComponent
-  }
+        component: AdminLayoutComponent,
+        canActivate: [AutenticarGuard],
+        canActivateChild: [AutenticarGuard],
+        children: [
+            {
+                path: '',
+                redirectTo: 'dashboard',
+                pathMatch: 'full',
+            },
+            {
+                path: '',
+                loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+            }
+        ]
+    },
+    {
+        path: 'autenticar/login',
+        component: LoginComponent
+    }
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    BrowserModule,
-    RouterModule.forRoot(routes,{
-       useHash: true
-    })
-  ],
-  exports: [
-  ],
+    imports: [
+        CommonModule,
+        BrowserModule,
+        RouterModule.forRoot(routes, {
+            useHash: true
+        })
+    ],
+    exports: [],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

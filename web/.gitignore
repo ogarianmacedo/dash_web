@@ -1,3 +1,4 @@
 # Ignorar todos os diretórios e arquivos em um diretório.
 # tmp/**/* 
 /node_modules
+package-lock.json

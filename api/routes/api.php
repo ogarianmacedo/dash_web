@@ -21,7 +21,6 @@ Route::post('autenticar/refresh', 'Api\AutenticarController@refresh');
 Route::get('autenticar/logout', 'Api\AutenticarController@logout');
 
 Route::group(['middleware' => 'jwt.auth', 'namespace' => 'Api\\'], function(){
-
     /**
      * Rotas modulo usuarios
      */
@@ -38,5 +37,4 @@ Route::group(['middleware' => 'jwt.auth', 'namespace' => 'Api\\'], function(){
      * Rotas modulo perfis
      */
     Route::get('perfil/busca-perfis', 'PerfilController@buscaPerfis');
-    
 });

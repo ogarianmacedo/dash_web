@@ -1,4 +1,4 @@
-import { Perfil } from "./perfil";
+import {Perfil} from "./perfil";
 
 export interface Usuario {
     id: number;

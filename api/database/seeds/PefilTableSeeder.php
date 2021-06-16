@@ -13,19 +13,18 @@ class PefilTableSeeder extends Seeder
     public function run()
     {
         Perfil::create([
-            'no_perfil' => 'Administrador',
+            'no_perfil' => 'ADMINISTRADOR',
             'st_ativo' => true
         ]);
 
         Perfil::create([
-            'no_perfil' => 'Usuário Loja',
+            'no_perfil' => 'USUARIO_LOJA',
             'st_ativo' => true
         ]);
 
         Perfil::create([
-            'no_perfil' => 'Usuário',
+            'no_perfil' => 'USUARIO',
             'st_ativo' => true
         ]);
-       
     }
 }

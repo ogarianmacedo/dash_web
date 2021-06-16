@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers\Api;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\JWTAuth;
 
+/**
+ * Class AutenticarController
+ * @package App\Http\Controllers\Api
+ */
 class AutenticarController extends Controller
 {
     /**
@@ -13,11 +19,19 @@ class AutenticarController extends Controller
      */
     private $jwtAuth;
 
+    /**
+     * AutenticarController constructor.
+     * @param JWTAuth $jwtAuth
+     */
     public function __construct(JWTAuth $jwtAuth)
     {
         $this->jwtAuth = $jwtAuth;
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function login(Request $request)
     {
         // pega credenciais da solicitação
@@ -37,6 +51,9 @@ class AutenticarController extends Controller
         return response()->json(compact('token', 'usuario'));
     }
 
+    /**
+     * @return JsonResponse
+     */
     public function refresh()
     {
         $token = $this->jwtAuth->getToken();
@@ -45,6 +62,9 @@ class AutenticarController extends Controller
         return response()->json(compact('token'));
     }
 
+    /**
+     * @return JsonResponse
+     */
     public function logout()
     {
         $token = $this->jwtAuth->getToken();
@@ -53,6 +73,10 @@ class AutenticarController extends Controller
         return response()->json(['logout']);
     }
 
+    /**
+     * @return JsonResponse
+     * @throws JWTException
+     */
     public function getUsuarioAutenticado()
     {
         if (!$usuario = $this->jwtAuth->parseToken()->authenticate()) {

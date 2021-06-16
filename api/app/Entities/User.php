@@ -6,6 +6,10 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Entities\Perfil;
 
+/**
+ * Class User
+ * @package App\Entities
+ */
 class User extends Authenticatable
 {
     use Notifiable;

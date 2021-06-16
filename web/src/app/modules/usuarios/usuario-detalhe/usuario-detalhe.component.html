@@ -1,57 +1,61 @@
 <div class="main-content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="card">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card" *ngIf="usuario">
 
-          <div class="header">
-            <div class="row">
-              <div class="col-md-6">
-                <h4 class="title">Detalhes</h4>
-              </div>
-              <div class="col-md-6 text-right">
-                <a type="button" class="btn btn-primary btn-sm" title="Listar usuários" [routerLink]="['/usuarios']">Voltar</a>
-              </div>
-            </div>
-          </div>
+                    <div class="header">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4 class="title">Detalhes</h4>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <a type="button" class="btn btn-primary btn-sm" title="Listar usuários"
+                                   [routerLink]="['/usuarios']">Voltar</a>
+                            </div>
+                        </div>
+                    </div>
 
-          <div class="content">
-            <div class="card card-user">
-              <div class="image">
-                <img src="assets/img/mesa-01.jpg" alt="..." />
-              </div>
-              <div class="content">
-                <div class="author">
-                  <a href="#">
-                    <img class="avatar border-gray" src="{{url + usuario?.imagem}}" alt="..." />
+                    <div class="content">
+                        <div class="card card-user">
+                            <div class="image">
+                                <img src="assets/img/mesa-01.jpg" alt="..."/>
+                            </div>
+                            <div class="content">
+                                <div class="author">
+                                    <a href="#">
+                                        <img class="avatar border-gray" src="{{url + usuario?.imagem}}" alt="..."/>
 
-                    <h4 class="title">{{usuario?.name}}<br />
-                      <small>{{usuario?.perfil?.no_perfil}}</small>
-                    </h4>
-                  </a>
+                                        <h4 class="title">{{usuario?.name}}<br/>
+                                            <small>{{usuario?.perfil?.no_perfil}}</small>
+                                        </h4>
+                                    </a>
+                                </div>
+                                <p class="description text-center">
+                                    {{usuario?.email}} <br>
+                                    Criado em {{usuario?.created_at | date:'dd/M/y'}} <br>
+                                    <span [hidden]="usuario?.st_ativo == 1" style="color:red;">Inativo</span>
+                                    <span [hidden]="usuario?.st_ativo != 1" style="color:green;">Ativo</span>
+                                </p>
+                            </div>
+                            <hr>
+                            <div class="text-center">
+                                <a [routerLink]="['/usuarios/editar/', usuario?.id]" rel="tooltip"
+                                   title="Editar Usuário" class="btn btn-warning btn-simple">
+                                    <i class="fa fa-edit"></i> Editar
+                                </a>
+                                <a rel="tooltip" title="Ativar ou inativar usuário" style="cursor: pointer;"
+                                   (click)="alterarStatus(usuario?.id)">
+                                    <span *ngIf="usuario?.st_ativo != 1" style="color:green;"><i
+                                            class="fa fa-check"></i> Ativar</span>
+                                    <span *ngIf="usuario?.st_ativo == 1" style="color:red;"><i class="fa fa-times"></i> Inativar</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <p class="description text-center">
-                  {{usuario?.email}} <br>
-                  Criado em {{usuario?.created_at | date:'dd/M/y'}} <br>
-                  <span [hidden]="usuario?.st_ativo == 1" style="color:red;">Inativo</span>
-                  <span [hidden]="usuario?.st_ativo != 1" style="color:green;">Ativo</span>
-                </p>
-              </div>
-              <hr>
-              <div class="text-center">
-                <a [routerLink]="['/usuarios/editar/', usuario?.id]" rel="tooltip" title="Editar Usuário" class="btn btn-warning btn-simple">
-                  <i class="fa fa-edit"></i> Editar
-                </a>
-                <a rel="tooltip" title="Ativar ou inativar usuário" style="cursor: pointer;" (click)="alterarStatus(usuario?.id)">
-                  <span *ngIf="usuario?.st_ativo != 1" style="color:green;"><i class="fa fa-check"></i> Ativar</span>
-                  <span *ngIf="usuario?.st_ativo == 1" style="color:red;"><i class="fa fa-times"></i> Inativar</span>
-                </a>
-              </div>
             </div>
-          </div>
-
         </div>
-      </div>
     </div>
-  </div>
 </div>

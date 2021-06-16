@@ -19,19 +19,19 @@ class UsersTableSeeder extends Seeder
          * Gera usuário padrão
          */
         User::create([
-            'name' => 'Luigi Bros',
-            'email' => 'luigi@email.com',
+            'name' => 'João Administrador',
+            'email' => 'admin@email.com',
             'password' => bcrypt('123456'),
-            'imagem' => 'img/uploads/perfil/luigi.png',
+            'imagem' => 'img/uploads/perfil/imagem_perfil_33234.jpeg',
             'id_perfil' => 1,
             'st_ativo' => true
         ]);
 
         User::create([
-            'name' => 'Mario Bros',
-            'email' => 'mario@email.com',
+            'name' => 'João Usuário',
+            'email' => 'usuario@email.com',
             'password' => bcrypt('123456'),
-            'imagem' => 'img/uploads/perfil/mario.png',
+            'imagem' => 'img/uploads/perfil/imagem_perfil_15964.png',
             'id_perfil' => 2,
             'st_ativo' => false
         ]);
